@@ -67,6 +67,29 @@ class FyiMigration
     }
   end
 
+  def load_events
+    events = self.load('info_request_events')
+    events.each{|attrs|
+      c_id = attrs["correspondence_id"]
+      event = InfoRequestEvent.new(attrs.except(*%w(correspondence_type correspondence_id)))
+      event[:id] = attrs["id"]
+
+      if IncomingMessage.exists?(c_id)
+        incoming_message = IncomingMessage.find(c_id)
+        event.incoming_message = incoming_message
+        event.info_request = incoming_message.info_request
+        raise "xxx" unless event.save()
+      else
+        begin
+          event.outgoing_message = OutgoingMessage.find(c_id)
+          event.info_request = event.outgoing_message.info_request
+          raise "xxx" unless event.save()
+        rescue
+        end
+      end
+    }
+  end
+
   def clean
     [InfoRequestEvent, OutgoingMessage, IncomingMessage, RawEmail, InfoRequest, User].each{|c|
       c.find(:all).each(&:destroy)
@@ -79,6 +102,7 @@ class FyiMigration
     migration.load_users()
     migration.load_info_requests()
     migration.load_correspondences()
+    migration.load_events()
   end
 end
 
