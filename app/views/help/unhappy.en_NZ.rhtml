@@ -1,0 +1,67 @@
+<h2>Unhappy?</h2>
+<p>
+<% if @info_request.nil? %>
+  If you're unhappy about the response you got,
+<% else %>
+  If you're unhappy about the response you got to your request '<%=request_link(@info_request) %>',
+<% end %>
+  for example if ...
+</p>
+
+<ul>
+  <li>... You didn't get a reply within 20 working days <strong>or</strong></li>
+  <li>... You did not get all of the information that you requested <strong>or</strong></li>
+  <li>... Your request was rejected, but without a reason valid under the law</li>
+</ul>
+
+<ol>
+  <li>
+    <h2 id="complaining">Either ... Lodge a complaint and request an Ombudsman investigates <a class="hover_a" href="#complaining">#</a> </h2>
+    <p>
+      You can find information on <a href="http://www.ombudsmen.govt.nz/index.php?CID=100021">Official Information Complaints</a> on the Office of the Ombudsman's website.
+    </p>
+
+
+    <p>To make it easier for the Ombudsman,
+      <% if @info_request.nil? %>
+        include a link to your request on FYI
+      <%else%>
+        include a link to your request:
+        <br/>
+        <strong><%=h main_url(info_request_url(@info_request)) %></strong>
+        <br/>
+      <%end%>
+      in your complaint or print out the whole page of your request and all attachments.
+    </p>
+
+    <p>
+      FYI currently has no special facilities for handling a request at this stage - it
+      passes into the Office of the Ombudsman's system. You can leave annotations on your
+      request keeping people informed of progress.
+    </p>
+  </li>
+  <li>
+    <h2 id="other means">Or ... Use other means to answer your question <a class="hover_a" href="#other_means">#</a> </h2>
+
+    <p>You can try pursuing your problem or your research in other ways:</p>
+
+    <ul>
+      <li>Make a <strong>new OIA request</strong> for summary information, or for
+        documentation relating indirectly to matters in your rejected request.
+        <a href="/help/contact">Ask us for ideas</a> if you're stuck.</li>
+      <li>If any <strong>other public authorities</strong> or publicly owned companies are involved,
+        then make OIA requests to them.</li>
+      <li>
+        Write to <strong>your MP</strong>, <strong>the Minister responsible</strong> or any other politician using the <a
+          href="http://www.parliament.nz/en-NZ/AboutParl/GetInvolved/Contact/2/9/d/00PlibHvYrSayContact1-Contact-an-MP.htm">New Zealand Parliament</a> website. MPs can write directly to ministers or departments, and can ask written questions in parliament.
+      </li>
+      <li>
+        s<strong>Start a pledge</strong> on <a href="http://www.pledgebank.com">PledgeBank</a> to get
+        others to act together with you. For example, you could arrange a meeting with
+        staff from the authority. Or you could form a small local campaigns group.
+      </li>
+    </ul>
+  </li>
+</ol>
+
+
