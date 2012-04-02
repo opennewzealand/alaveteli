@@ -1,0 +1,5 @@
+<% if MySociety::Config::get("TWITTER_CONSUMER_KEY", '') and MySociety::Config::get("TWITTER_CONSUMER_SECRET", '') %>
+  <div class="service-signin">
+    <a class="link_button_green" href="/auth/twitter"><%=_('Sign in with twitter')%></a>
+  </div>
+<% end %>

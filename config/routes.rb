@@ -7,7 +7,7 @@
 # $Id: routes.rb,v 1.92 2009-10-14 22:01:27 francis Exp $
 
 ActionController::Routing::Routes.draw do |map|
-    
+
     # The priority is based upon order of creation: first created -> highest priority.
 
     # Sample of regular route:
@@ -16,7 +16,7 @@ ActionController::Routing::Routes.draw do |map|
 
     # Allow easy extension from themes. Note these will have the highest priority.
     require 'config/custom-routes'
-    
+
     map.with_options :controller => 'general' do |general|
         general.frontpage           '/',            :action => 'frontpage'
         general.blog '/blog', :action => 'blog'
@@ -44,7 +44,7 @@ ActionController::Routing::Routes.draw do |map|
         request.request_list   '/list',        :action => 'list'
 
         request.select_authority     '/select_authority',     :action => 'select_authority'
-        
+
         request.new_request    '/new',         :action => 'new'
         request.new_request_to_body    '/new/:url_name',         :action => 'new'
 
@@ -226,6 +226,9 @@ ActionController::Routing::Routes.draw do |map|
         rule.admin_rule_destroy '/admin/censor/destroy/:censor_rule_id', :action => 'destroy'
     end
     map.filter('conditionallyprependlocale')
+
+    map.match("/auth/:provider/callback", :controller => "sessions", :action => "create")
+
 
     # Allow downloading Web Service WSDL as a file with an extension
     # instead of a file named 'wsdl'

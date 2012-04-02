@@ -1,7 +1,7 @@
 # Be sure to restart your web server when you modify this file.
 
 
-# Uncomment below to force Rails into production mode when 
+# Uncomment below to force Rails into production mode when
 # you don't control web/app server and can't set it the proper way
 # ENV['RAILS_ENV'] ||= 'production'
 
@@ -41,7 +41,7 @@ Rails::Initializer.run do |config|
   MySociety::Config.load_default
 
   # Settings in config/environments/* take precedence over those specified here
-  
+
   # Skip frameworks you're not going to use (only works if using vendor/rails)
   # config.frameworks -= [ :action_web_service, :action_mailer ]
 
@@ -51,7 +51,7 @@ Rails::Initializer.run do |config|
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
-  # Force all environments to use the same logger level 
+  # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)
   # TEMP: uncomment this to turn on logging in production environments
   # config.log_level = :debug
@@ -67,10 +67,14 @@ Rails::Initializer.run do |config|
   config.gem 'rspec-rails', :lib => false, :version => '1.3.3'
   config.gem 'routing-filter'
   config.gem 'will_paginate', :version => '~> 2.3.11', :source => 'http://gemcutter.org'
+
+  if MySociety::Config::get("TWITTER_CONSUMER_KEY", '')
+    gem 'omniauth-twitter'
+  end
   #GettextI18nRails.translations_are_html_safe = true
 
   # Use SQL instead of Active Record's schema dumper when creating the test database.
-  # This is necessary if your schema can't be completely dumped by the schema dumper, 
+  # This is necessary if your schema can't be completely dumped by the schema dumper,
   # like if you have constraints or database-specific column types
   config.active_record.schema_format = :sql
 
@@ -79,8 +83,8 @@ Rails::Initializer.run do |config|
 
   # Make Active Record use UTC-base instead of local time
   config.active_record.default_timezone = :utc
-  
-  config.after_initialize do    
+
+  config.after_initialize do
      require 'routing_filters.rb'
   end
 
@@ -89,7 +93,7 @@ Rails::Initializer.run do |config|
   ENV['RECAPTCHA_PRIVATE_KEY'] = MySociety::Config::get("RECAPTCHA_PRIVATE_KEY", 'x');
 end
 
-# Add new inflection rules using the following format 
+# Add new inflection rules using the following format
 # (all these examples are active by default):
 # Inflector.inflections do |inflect|
 #   inflect.plural /^(ox)$/i, '\1en'

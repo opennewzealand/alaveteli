@@ -84,7 +84,7 @@ div.controller_help h1 a
 }
 
 #banner_inner a#logo {
-  position:absolute; 
+  position:absolute;
   left:0px;
   top:70px;
   z-index: 100;
@@ -630,7 +630,7 @@ form input.use-datepicker[type=text] {
   font-size: 14px !important;
 }
 
-form input[type=submit], 
+form input[type=submit],
 a.link_button_green,
 a.link_button_green_large {
   background: url(/images/button-gradient.png);
@@ -657,7 +657,7 @@ a.link_button_green_large {
 }
 
 @-moz-document url-prefix() {
-  form input[type=submit], 
+  form input[type=submit],
   a.link_button_green {
     padding: 2px 11px;
     margin-top:1px;
@@ -1080,7 +1080,6 @@ a.link_to_this {
   -moz-border-radius: 6px;
   font-size: 12px;
   font-weight: normal;
-  width: 554px;
   margin: 20px 0px 30px 0px;
 }
 

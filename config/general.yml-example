@@ -1,7 +1,7 @@
 # general.yml-example:
 # Example values for the "general" config file.
 #
-# Configuration parameters, in YAML syntax. 
+# Configuration parameters, in YAML syntax.
 #
 # Copy this file to one called "general.yml" in the same directory.  Or
 # have multiple config files and use a symlink to change between them.
@@ -130,3 +130,6 @@ FORWARD_NONBOUNCE_RESPONSES_TO: user-support@localhost
 # If the command is not present, a text-only version will be rendered
 # instead.
 HTML_TO_PDF_COMMAND: /usr/local/bin/wkhtmltopdf-amd64
+
+TWITTER_CONSUMER_KEY:
+TWITTER_CONSUMER_SECRET:
