@@ -90,8 +90,18 @@ class FyiMigration
     }
   end
 
+  def load_public_bodies
+    bodies = self.load('public_bodies')
+    bodies.each{|attrs|
+      body = PublicBody.new(attrs.except(*%w(active info_requests_count short_name law_id charity_number category_id)))
+      body[:id] = attrs["id"]
+      body.short_name = attrs["short_name"].to_s
+      raise "xxx" unless body.save()
+    }
+  end
+
   def clean
-    [InfoRequestEvent, OutgoingMessage, IncomingMessage, RawEmail, InfoRequest, User].each{|c|
+    [TrackThing, InfoRequestEvent, OutgoingMessage, IncomingMessage, RawEmail, InfoRequest, User, PublicBody].each{|c|
       c.find(:all).each(&:destroy)
     }
   end
@@ -99,6 +109,7 @@ class FyiMigration
   def run
     migration = FyiMigration.new()
     migration.clean()
+    migration.load_public_bodies()
     migration.load_users()
     migration.load_info_requests()
     migration.load_correspondences()

@@ -17,3 +17,5 @@ TAGS
 /files/
 /public/download
 /public/*theme
+.sass-cache
+/test/*.yml
