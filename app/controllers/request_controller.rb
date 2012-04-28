@@ -175,7 +175,6 @@ class RequestController < ApplicationController
             @matches_estimated = xapian_object.matches_estimated
             @show_no_more_than = (@matches_estimated > MAX_RESULTS) ? MAX_RESULTS : @matches_estimated
         end
-        print "Got this many results: #{@list_results.length}"
 
         @title = @title + " (page " + @page.to_s + ")" if (@page > 1)
         @track_thing = TrackThing.create_track_for_search_query(query)
