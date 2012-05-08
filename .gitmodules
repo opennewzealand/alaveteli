@@ -6,4 +6,4 @@
 	url = git://github.com/rails/rails.git
 [submodule "vendor/rails-locales"]
 	path = vendor/rails-locales
-	url = git://github.com/svenfuchs/rails-i18n.git
+	url = git@github.com:wombleton/rails-i18n.git
