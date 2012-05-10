@@ -204,7 +204,7 @@ module LinkToHelper
 
     # Basic date format
     def simple_date(date)
-        "#{I18n.l(date, :format => "%e %B %Y")} #{I18n.l(date.localtime, :format => "%e %B %Y")}"
+        return I18n.l(date, :format => "%e %B %Y")
     end
 
     def simple_time(date)
