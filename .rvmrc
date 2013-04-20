@@ -6,7 +6,7 @@
 # First we specify our desired <ruby>[@<gemset>], the @gemset name is optional,
 # Only full ruby name is supported here, for short names use:
 #     echo "rvm use 1.8.7" > .rvmrc
-environment_id="ruby-1.8.7-p370"
+environment_id="ruby-1.8.7-p371"
 
 rubygems_version="1.6.2"
 
